@@ -1,0 +1,27 @@
+let cached_files = [
+    "./",
+    "/src/index.js",
+    "/images/iconLarge.png",
+    "/images/iconSmall.png",
+    "/images/maskable_icon.png",
+    "/index.html",
+    "/manifest.webmanifest"
+]; 
+
+self.addEventListener("install", e => {
+    console.log("Installed!");
+    e.waitUntil(
+        caches.open("static").then(cache => {
+            return cache.addAll(cached_files);
+        })
+    );
+});
+
+self.addEventListener("fetch", e => {
+    console.log(`Intercepting fetch request for: ${e.request.url}`);
+    e.respondWith(
+        caches.match(e.request).then(response => {
+            return response || fetch (e.request);
+        })
+    );
+});

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#009578">
+        <title>PWA Example</title>
+        <script src="src/index.js"></script>
+        <link rel="apple-touch-icon" href="images/iconSmall.png">
+        <link rel="icon" type="image/png" href="images/iconSmall.png">
+        <link rel="manifest" href="/manifest.webmanifest">
+    </head>
+    <body>
+        <h1>Progressive Web App Example</h1>
+    
+        <div id="content"></div>
+    
+        <div class="jumbotron">
+            <h2 class="text-center display-4">Loan Interest Calculator</h2>
+            <hr>
+            <div class="container" id="simple-interest">
+                <h3>Simple Interest</h3>
+                <p class="lead">A=i+(prt)</p>
+                <form id="siForm">
+                    <div class="form-group">
+                        <label for="principalSimple">Principal $</label>
+                        <input type="text" class="form-control" id="principalSimple">
+                    </div>
+                    <div class="form-group">
+                        <label for="interestSimple">Interest Rate</label>
+                        <input type="text" class="form-control" id="interestSimple">%
+                    </div>
+                    <div class="form-group">
+                        <label for="termSimple">Term of Loan</label>
+                        <input type="text" class="form-control" id="termSimple"> years
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSimple" onclick="simpleInterest()">Submit</button>
+                </form>
+                <div>
+                    <p class="lead mt-3" id="siOutput-01"></p>
+                    <p class="lead mb-3" id="siOutput-02"></p>
+                </div>
+                <div class="text-center">
+                    <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('siForm').reset()">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="container" div="compound-interest ">
+                <h3>Compound Interest</h3>
+                <p class="lead">A=p(1+(r/n))^(nt)</p>
+                <form id="ciForm">
+                    <div class="form-group">
+                        <label for="principalCompound">Principal</label>
+                        <input type="text" class="form-control" id="principalCompound">
+                    </div>
+                    <div class="form-group">
+                        <label for="interestCompound">Interest Rate</label>
+                        <input type="text" class="form-control" id="interestCompound">%
+                    </div>
+                    <div class="form-group">
+                        <label for="timesCompounded">Times Compounded per Year</label>
+                        <input type="text" class="form-control" id="timesCompounded">
+                    </div>
+                    <div class="form-group">
+                        <label for="termCompound">Term of Loan</label>
+                        <input type="text" class="form-control" id="termCompound"> years
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnCompound" onclick="compoundInterest()">Submit</button>
+                </form>
+                <div>
+                    <p class="lead mt-3" id="ciOutput-01"></p>
+                    <p class="lead mb-3" id="ciOutput-02"></p>
+                </div>
+                <div class="text-center">
+                    <input class="btn btn-secondary btn-lg" type="button" value="Reset" onClick="document.getElementById('ciForm').reset()">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
